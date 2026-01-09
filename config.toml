@@ -1,0 +1,33 @@
+[input]
+heightmap_path = "input/heightmap.png"
+output_dir = "output/"
+
+[processing]
+max_road_width = 16
+poi_min_size = 18
+poi_max_size = 32
+connection_radius = 4000.0
+slope_weight = 900.0
+road_reuse_bonus = 5.0  # interpreted as α (higher = stronger reuse incentive)
+
+[pathfinding]
+simplify_epsilon = 7.0
+max_connections_per_poi = 16 # (PoIs * conn) / 2 = total paths
+mask_size = 5 # Use Mk=3 for balance of smoothness & speed
+
+[visualization]
+heightmap_color = [0, 0, 0]
+road_colors = [
+  [160, 160, 160],    # usage=1 (local)
+  [180, 180, 180],  # usage=2
+  [200, 200, 200],  # usage=3
+  [220, 220, 220],  # usage=4 
+  [255, 255, 255]      # usage=5 (highway)
+]
+poi_color = [255, 60, 60]
+spline_color = [60, 255, 60]
+draw_splines = false
+
+[random]
+seed = 42
+poi_density = 0.000002
